@@ -19,12 +19,11 @@
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
       "@/components/*": ["./src/components/*"],
+      "@/pages/*": ["./src/pages/*"],
       "@/constants/*": ["./src/constants/*"],
       "@/assets/*": ["./src/assets/*"],
       "@/hooks/*": ["./src/hooks/*"],
-      "@/store/*": ["./src/store/*"],
       "@/types/*": ["./src/types/*"],
-      "@/helpers/*": ["./src/helpers/*"]
     }
   },
   "include": ["src"]
