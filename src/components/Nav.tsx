@@ -4,7 +4,7 @@ export const Nav = () => {
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/skills", label: "Skills" },
-    { to: "/portfolio", label: "Projects" },
+    { to: "/projects", label: "Projects" },
     { to: "/contact", label: "Contact" },
   ];
 

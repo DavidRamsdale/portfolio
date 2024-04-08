@@ -1,4 +1,4 @@
-import { Skill } from "@/constants";
+import { Skill } from "@/constants/types";
 import { motion } from "framer-motion";
 
 interface SkillSectionProps {
@@ -11,8 +11,8 @@ export const SkillSection: React.FC<SkillSectionProps> = ({
   skills,
 }) => {
   return (
-    <motion.div>
-      <h2 className="text-4xl font-semibold">{title}</h2>
+    <motion.div className="flex flex-col justify-start items-center">
+      <h2 className="text-4xl font-semibold text-center">{title}</h2>
       <div className="mt-8 space-y-4 pb-6">
         {skills.map((skill, index) => (
           <div className="w-64" key={index}>
