@@ -1,8 +1,12 @@
-import React from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/Button";
+import emailjs from "@emailjs/browser";
+import { TOAST_OPTIONS } from "@/constants";
 
 interface FormData {
+  Name: string;
   Email: string;
   Message: string;
 }
@@ -14,7 +18,33 @@ export const ContactForm = () => {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => console.log(data);
+  const onSubmit = (data: FormData) => {
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          to_name: "David",
+          from_name: data.Name,
+          from_email: data.Email,
+          message: data.Message,
+        },
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }
+      )
+      .then(
+        () => {
+          toast.success("Email was sent successfully sent!", TOAST_OPTIONS);
+        },
+        () => {
+          toast.error(
+            "Something went wrong sending the email, please try again later.",
+            TOAST_OPTIONS
+          );
+        }
+      );
+  };
 
   return (
     <div className="w-full max-w-sm">
@@ -22,6 +52,26 @@ export const ContactForm = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="Name"
+          >
+            Name
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="Name"
+            type="text"
+            placeholder="Name"
+            {...register("Name", {
+              required: "Name is required",
+            })}
+          />
+          {errors.Name && (
+            <p className="text-red-500 text-xs italic">{errors.Name.message}</p>
+          )}
+        </div>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -56,7 +106,7 @@ export const ContactForm = () => {
             Your Message
           </label>
           <textarea
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-24"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-24 max-h-36"
             id="Message"
             placeholder="Your Message"
             {...register("Message", { required: "Message is required" })}

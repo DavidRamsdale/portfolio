@@ -5,12 +5,15 @@ import { Skills } from "@/pages/Skills";
 import { Projects } from "@/pages/Projects";
 import { Contact } from "@/pages/Contact";
 import { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <main className="h-screen w-full relative">
       <Router>
         <Nav />
+        <ToastContainer />
+
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Home />} />
