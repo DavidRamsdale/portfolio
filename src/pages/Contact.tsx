@@ -1,11 +1,11 @@
+import { ContactForm } from "@/components/ContactForm";
 import { PageSection } from "@/components/PageSection";
 
 export const Contact = () => {
   return (
     <PageSection>
-      <div>
-        <h1>Contact</h1>
-        <p>This is the Contact page.</p>
+      <div className="flex justify-center items-center h-screen w-full">
+        <ContactForm />
       </div>
     </PageSection>
   );
