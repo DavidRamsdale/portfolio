@@ -1,11 +1,10 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { Nav } from "@/components/Nav";
-import { Home } from "@/pages/Home";
-import { Skills } from "@/pages/Skills";
-import { Projects } from "@/pages/Projects";
-import { Contact } from "@/pages/Contact";
-import { Suspense } from "react";
+import { Skills } from "@/components/Skills";
+import { Projects } from "@/components/Projects";
+import { Contact } from "@/components/Contact";
 import { ToastContainer } from "react-toastify";
+import { HeroCanvas } from "./components/Canvas/HeroCanvas";
 
 function App() {
   return (
@@ -13,15 +12,10 @@ function App() {
       <Router>
         <Nav />
         <ToastContainer />
-
-        <Suspense fallback={null}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Suspense>
+        <HeroCanvas />
+        <Skills />
+        <Projects />
+        <Contact />
       </Router>
     </main>
   );

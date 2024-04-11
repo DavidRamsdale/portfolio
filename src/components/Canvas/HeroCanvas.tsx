@@ -1,13 +1,17 @@
 import { Avatar } from "@/components/Avatar";
-import { Environment, Text } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
+import { Environment, OrbitControls, Stars, Text } from "@react-three/drei";
+import { Canvas, useThree } from "@react-three/fiber";
 
-export const Scene = () => {
+const HeroContent = () => {
   const { size } = useThree();
   const maxWidth = size.width > 720 ? 10 : 4;
 
   return (
     <>
+      <color attach="background" args={["#000000"]} />
+      <Stars speed={1} />
+      <Environment preset="sunset" />
+      <OrbitControls enableZoom={false} />
       <group position={[-1.5, 0.2, 0]}>
         <Text
           anchorX="center"
@@ -30,8 +34,14 @@ export const Scene = () => {
       <group position={[1.5, 0, 0]}>
         <Avatar />
       </group>
-      {/* <fog attach="fog" args={["#f0f0f0", 10, 30]} /> */}
-      <Environment preset="sunset" />
     </>
+  );
+};
+
+export const HeroCanvas = () => {
+  return (
+    <Canvas>
+      <HeroContent />
+    </Canvas>
   );
 };

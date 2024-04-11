@@ -9,7 +9,7 @@ export const Nav = () => {
   ];
 
   return (
-    <nav className="absolute top-0 w-full flex justify-around p-4 bg-black z-10">
+    <nav className="fixed top-0 w-full flex justify-around p-4 bg-black z-10">
       {navLinks.map((link, index) => (
         <Link key={index} to={link.to} className="text-lg font-bold text-white">
           {link.label}

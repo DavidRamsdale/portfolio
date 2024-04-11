@@ -17,11 +17,11 @@ export const SkillSection: React.FC<SkillSectionProps> = ({
         {skills.map((skill, index) => (
           <div className="w-64" key={index}>
             <motion.h3
+              whileInView={"visible"}
               className="text-xl font-bold text-gray-800"
               initial={{
                 opacity: 0,
               }}
-              animate="visible"
               variants={{
                 visible: {
                   opacity: 1,
@@ -36,9 +36,9 @@ export const SkillSection: React.FC<SkillSectionProps> = ({
             </motion.h3>
             <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
               <motion.div
+                whileInView={"visible"}
                 className="h-full bg-indigo-500 rounded-full "
                 style={{ width: `${skill.level}%` }}
-                animate="visible"
                 initial={{
                   scaleX: 0,
                   originX: 0,
