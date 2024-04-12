@@ -3,5 +3,5 @@ type PageSectionProps = {
 };
 
 export const PageSection = ({ children }: PageSectionProps) => {
-  return <div className="container pt-[85px] pb-[70px]">{children}</div>;
+  return <div className="container py-10">{children}</div>;
 };

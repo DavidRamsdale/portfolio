@@ -5,6 +5,7 @@ import { Projects } from "@/components/Projects";
 import { Contact } from "@/components/Contact";
 import { ToastContainer } from "react-toastify";
 import { HeroCanvas } from "./components/Canvas/HeroCanvas";
+import Experience from "./components/Experience";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Nav />
         <ToastContainer />
         <HeroCanvas />
+        <Experience />
         <Skills />
         <Projects />
         <Contact />
