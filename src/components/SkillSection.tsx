@@ -11,9 +11,9 @@ export const SkillSection: React.FC<SkillSectionProps> = ({
   skills,
 }) => {
   return (
-    <motion.div className="flex flex-col justify-start items-center">
-      <h2 className="text-4xl font-semibold text-center">{title}</h2>
-      <div className="mt-8 space-y-4 pb-6">
+    <motion.div className="flex flex-col justify-start">
+      <h3 className="text-2xl font-semibold">{title}</h3>
+      <div className="mt-2 space-y-4 pb-2">
         {skills.map((skill, index) => (
           <div className="w-64" key={index}>
             <motion.h3

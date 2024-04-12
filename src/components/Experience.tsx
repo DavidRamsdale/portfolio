@@ -3,7 +3,8 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { PageSection } from "./PageSection";
+import { PageSection } from "./common/PageSection";
+import SectionTitle from "./common/SectionTitle";
 
 const experienceData = [
   {
@@ -29,10 +30,10 @@ const experienceData = [
   },
 ];
 
-const Experience = () => {
+export const Experience = () => {
   return (
-    <PageSection>
-      <h1 className="text-5xl text-center font-bold pb-6">Experience</h1>
+    <PageSection id="experience">
+      <SectionTitle title="Experience" />
       <VerticalTimeline lineColor="black">
         {experienceData.map((experience, index) => (
           <VerticalTimelineElement
@@ -50,5 +51,3 @@ const Experience = () => {
     </PageSection>
   );
 };
-
-export default Experience;

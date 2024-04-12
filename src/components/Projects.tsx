@@ -1,5 +1,6 @@
-import { PageSection } from "@/components/PageSection";
+import { PageSection } from "@/components/common/PageSection";
 import { Card } from "@/components/Card";
+import SectionTitle from "./common/SectionTitle";
 
 interface Project {
   title: string;
@@ -52,11 +53,9 @@ const projects: Project[] = [
 
 export const Projects = () => {
   return (
-    <PageSection>
+    <PageSection id="projects">
       <div>
-        <h1 className="text-5xl text-center font-bold pb-6 md:pb-10">
-          Projects
-        </h1>
+        <SectionTitle title="Projects" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <Card project={project} key={index} />

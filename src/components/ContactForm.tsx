@@ -1,9 +1,9 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/common/Button";
 import emailjs from "@emailjs/browser";
-import { TOAST_OPTIONS } from "@/constants";
+import { TOAST_OPTIONS } from "@/constants/options";
 
 interface FormData {
   Name: string;
