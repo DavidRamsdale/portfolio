@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   githubLink: string;
   liveSiteLink: string;
+  tags: string[];
 }
 
 export interface Skill {

@@ -58,7 +58,7 @@ export const Projects = () => {
         <SectionTitle title="Projects" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <Card project={project} key={index} />
+            <Card project={project} key={index} delay={0.3 * index} />
           ))}
         </div>
       </div>

@@ -1,19 +1,19 @@
-import { Link } from "react-router-dom";
-
 export const Nav = () => {
   const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/skills", label: "Skills" },
-    { to: "/projects", label: "Projects" },
-    { to: "/contact", label: "Contact" },
+    { to: "#home", label: "Home" },
+    { to: "#about", label: "About" },
+    { to: "#skills", label: "Skills" },
+    { to: "#experience", label: "Experience" },
+    { to: "#projects", label: "Projects" },
+    { to: "#contact", label: "Contact" },
   ];
 
   return (
     <nav className="fixed top-0 w-full flex justify-around p-4 bg-black z-10">
       {navLinks.map((link, index) => (
-        <Link key={index} to={link.to} className="text-lg font-bold text-white">
+        <a key={index} href={link.to} className="text-lg font-bold text-white">
           {link.label}
-        </Link>
+        </a>
       ))}
     </nav>
   );

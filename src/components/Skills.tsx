@@ -1,5 +1,5 @@
 import { PageSection } from "@/components/common/PageSection";
-import { SkillSection } from "@/components/SkillSection";
+import { SkillColumn } from "@/components/SkillColumn";
 import SectionTitle from "./common/SectionTitle";
 
 export interface Skill {
@@ -40,10 +40,10 @@ export const Skills = () => {
     <PageSection id="skills">
       <SectionTitle title="Skills" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <SkillSection title="Frontend" skills={Frontend} />
-        <SkillSection title="Backend" skills={Backend} />
-        <SkillSection title="Testing" skills={Testing} />
-        <SkillSection title="Other" skills={Testing} />
+        <SkillColumn title="Frontend" skills={Frontend} />
+        <SkillColumn title="Backend" skills={Backend} />
+        <SkillColumn title="Testing" skills={Testing} />
+        <SkillColumn title="Other" skills={Testing} />
       </div>
     </PageSection>
   );

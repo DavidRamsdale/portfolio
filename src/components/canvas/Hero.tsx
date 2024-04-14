@@ -38,7 +38,7 @@ const HeroContent = () => {
   );
 };
 
-export const HeroCanvas = () => {
+export const Hero = () => {
   return (
     <Canvas>
       <HeroContent />

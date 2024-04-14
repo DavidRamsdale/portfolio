@@ -1,22 +1,26 @@
-import React from "react";
-
-interface Project {
-  title: string;
-  imageUrl: string;
-  imageAlt: string;
-  description: string;
-  githubLink: string;
-  liveSiteLink: string;
-  tags: string[];
-}
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+import { Project } from "@/constants/types";
 
 interface CardProps {
   project: Project;
+  delay: number;
 }
 
-export const Card: React.FC<CardProps> = ({ project }) => {
+export const Card: React.FC<CardProps> = ({ project, delay }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <div className="p-4 bg-white border rounded transform transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl origin-bottom">
+    <motion.div
+      ref={ref}
+      className="p-4 bg-white border rounded transform transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl origin-bottom"
+      initial={{ y: 50, opacity: 0 }}
+      animate={inView ? { y: 0, opacity: 1 } : {}}
+      transition={{ duration: 0.5, type: "spring", delay }}
+    >
       <img
         src={project.imageUrl}
         alt={project.imageAlt}
@@ -53,6 +57,6 @@ export const Card: React.FC<CardProps> = ({ project }) => {
           Live Site
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 };

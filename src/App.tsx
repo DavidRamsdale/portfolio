@@ -4,7 +4,7 @@ import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
 import { Contact } from "@/components/Contact";
 import { ToastContainer } from "react-toastify";
-import { HeroCanvas } from "@/components/canvas/HeroCanvas";
+import { Hero } from "@/components/canvas/Hero";
 import { Experience } from "@/components/Experience";
 import { About } from "@/components/About";
 
@@ -13,7 +13,7 @@ function App() {
     <main className="h-screen w-full relative">
       <Router>
         <Nav />
-        <HeroCanvas />
+        <Hero />
         <About />
         <Skills />
         <Experience />
