@@ -1,6 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { Project } from "@/constants/types";
+import { Button } from "./common/Button";
 
 interface CardProps {
   project: Project;
@@ -28,8 +29,8 @@ export const Card: React.FC<CardProps> = ({ project, delay }) => {
         className="w-full h-48 object-cover rounded"
       />
       <div className="mt-4">
-        <h2 className="text-xl font-bold">{project.title}</h2>
-        <p>{project.description}</p>
+        <h2 className="text-xl font-bold pb-2">{project.title}</h2>
+        <p className="pb-4">{project.description}</p>
         <div className="flex flex-wrap space-x-2 mb-2">
           {project.tags.map((tag, index) => (
             <span
@@ -40,22 +41,26 @@ export const Card: React.FC<CardProps> = ({ project, delay }) => {
             </span>
           ))}
         </div>
-        <a
-          className="cursor-pointer"
-          href={project.githubLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
-        <a
-          className="cursor-pointer"
-          href={project.liveSiteLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Live Site
-        </a>
+        <div className="flex justify-between items-center">
+          <a
+            className="cursor-pointer text-blue-600"
+            href={project.githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub Repo
+          </a>
+          <Button>
+            <a
+              className=""
+              href={project.liveSiteLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Site
+            </a>
+          </Button>
+        </div>
       </div>
     </motion.div>
   );
