@@ -59,7 +59,7 @@ export const Nav = () => {
           <a
             key={index}
             href={link.to}
-            className="text-lg font-bold text-white"
+            className="text-lg font-bold text-white cursor-pointer"
           >
             {link.label}
           </a>

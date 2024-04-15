@@ -30,8 +30,8 @@ export const Card: React.FC<CardProps> = ({ project, delay }) => {
       />
       <div className="mt-4">
         <h2 className="text-xl font-bold pb-2">{project.title}</h2>
-        <p className="pb-4">{project.description}</p>
-        <div className="flex flex-wrap space-x-2 mb-2">
+        <p className="pb-3">{project.description}</p>
+        <div className="flex flex-wrap space-x-2 mb-4">
           {project.tags.map((tag, index) => (
             <span
               key={index}

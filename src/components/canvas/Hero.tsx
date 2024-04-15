@@ -83,7 +83,7 @@ export const Hero = () => {
           </Canvas>
         </div>
         <motion.button
-          className="z-30 container flex justify-center items-center pb-10 cursor-pointer"
+          className="z-30 container flex justify-center items-center pb-10"
           animate={{ y: ["0%", "10%", "0%"] }}
           transition={{ duration: 2, repeat: Infinity }}
           onClick={() => {
@@ -92,7 +92,11 @@ export const Hero = () => {
               ?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <img src="/icons/arrow_down.png" alt="Scroll down" />
+          <img
+            className="cursor-pointer"
+            src="/icons/arrow_down.png"
+            alt="Scroll down"
+          />
         </motion.button>
       </div>
     </section>
