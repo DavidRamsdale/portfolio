@@ -1,6 +1,6 @@
 import { PageSection } from "@/components/common/PageSection";
 import { Card } from "@/components/Card";
-import SectionTitle from "./common/SectionTitle";
+import { SectionTitle } from "./common/SectionTitle";
 
 interface Project {
   title: string;

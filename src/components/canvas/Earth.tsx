@@ -1,21 +1,22 @@
 import { useRef } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { TextureLoader, AdditiveBlending } from "three";
+import { TextureLoader, AdditiveBlending, Group } from "three";
 import { Environment, OrbitControls, Stars } from "@react-three/drei";
-import { ContactForm } from "@/components/ContactForm";
+import { ScreenType, useScreenType } from "@/hooks/useScreenType";
 
-const EARTH_RADIUS = 2;
-const CLOUDS_RADIUS = EARTH_RADIUS + 0.02;
-const CITY_LIGHTS_RADIUS = EARTH_RADIUS + 0.01;
+const CLOUDS_OFFSET = 0.02;
+const CITY_LIGHTS_OFFSET = 0.01;
 const EARTH_ROTATION_SPEED = 0.002;
 const WIDTH_SEGMENTS = 32;
 
-const CloudsMesh = () => {
+const CloudsMesh = ({ radius }: { radius: number }) => {
   const texture = useLoader(TextureLoader, "textures/earthcloudmap.jpg");
 
   return (
     <mesh>
-      <sphereGeometry args={[CLOUDS_RADIUS, WIDTH_SEGMENTS, WIDTH_SEGMENTS]} />
+      <sphereGeometry
+        args={[radius + CLOUDS_OFFSET, WIDTH_SEGMENTS, WIDTH_SEGMENTS]}
+      />
       <meshStandardMaterial
         map={texture}
         blending={AdditiveBlending}
@@ -26,13 +27,13 @@ const CloudsMesh = () => {
   );
 };
 
-const CityLightsMesh = () => {
+const CityLightsMesh = ({ radius }: { radius: number }) => {
   const texture = useLoader(TextureLoader, "textures/earthlights1k.jpg");
 
   return (
     <mesh>
       <sphereGeometry
-        args={[CITY_LIGHTS_RADIUS, WIDTH_SEGMENTS, WIDTH_SEGMENTS]}
+        args={[radius + CITY_LIGHTS_OFFSET, WIDTH_SEGMENTS, WIDTH_SEGMENTS]}
       />
       <meshBasicMaterial
         map={texture}
@@ -43,50 +44,69 @@ const CityLightsMesh = () => {
   );
 };
 
-const EarthMesh = () => {
+const EarthMesh = ({ radius }: { radius: number }) => {
   const texture = useLoader(TextureLoader, "textures/earth.jpg");
 
   return (
     <mesh>
-      <sphereGeometry args={[EARTH_RADIUS, WIDTH_SEGMENTS, WIDTH_SEGMENTS]} />
+      <sphereGeometry args={[radius, WIDTH_SEGMENTS, WIDTH_SEGMENTS]} />
       <meshStandardMaterial map={texture} />
     </mesh>
   );
 };
 
 const EarthGroup = () => {
-  const group = useRef();
+  const screenType = useScreenType();
+  const group = useRef<Group>(null);
+  let radius;
+  switch (screenType) {
+    case ScreenType.Mobile:
+      radius = 1;
+      break;
+    case ScreenType.Tablet:
+      radius = 1.5;
+      break;
+    case ScreenType.Desktop:
+    default:
+      radius = 2;
+      break;
+  }
 
   useFrame(() => {
-    group.current.rotation.y += EARTH_ROTATION_SPEED;
+    if (group.current) {
+      group.current.rotation.y += EARTH_ROTATION_SPEED;
+    }
   });
+
+  if (screenType === ScreenType.Mobile) {
+    return (
+      <group ref={group} position-x={0} position-y={1.6}>
+        <EarthMesh radius={radius} />
+        <CloudsMesh radius={radius} />
+        <CityLightsMesh radius={radius} />
+      </group>
+    );
+  }
 
   return (
     <group ref={group} position-x={2}>
-      <EarthMesh />
-      <CloudsMesh />
-      <CityLightsMesh />
+      <EarthMesh radius={radius} />
+      <CloudsMesh radius={radius} />
+      <CityLightsMesh radius={radius} />
     </group>
   );
 };
 
 export default function Earth() {
   return (
-    <div className="relative flex items-center h-screen w-full">
-      <div className="absolute inset-0">
-        <Canvas>
-          <Environment preset="sunset" />
-          <ambientLight intensity={1} />
-          <color attach="background" args={["#000000"]} />
-          <Stars speed={1} />
-          <OrbitControls enableZoom={false} enableRotate={false} />
-          <Stars />
-          <EarthGroup />
-        </Canvas>
-      </div>
-      <div className="container z-30">
-        <ContactForm />
-      </div>
-    </div>
+    <Canvas>
+      <Environment preset="sunset" />
+      <ambientLight intensity={1} />
+      <color attach="background" args={["#000000"]} />
+      <Stars speed={1} />
+      <OrbitControls enableZoom={false} enableRotate={false} />
+      <Stars />
+      <EarthGroup />
+    </Canvas>
   );
 }

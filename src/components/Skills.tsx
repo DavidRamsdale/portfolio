@@ -1,6 +1,6 @@
 import { PageSection } from "@/components/common/PageSection";
 import { SkillColumn } from "@/components/SkillColumn";
-import SectionTitle from "./common/SectionTitle";
+import { SectionTitle } from "./common/SectionTitle";
 
 export interface Skill {
   title: string;

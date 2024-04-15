@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { PageSection } from "@/components/common/PageSection";
-import SectionTitle from "./common/SectionTitle";
+import { SectionTitle } from "./common/SectionTitle";
 
 export const About = () => {
   const [ref, inView] = useInView({

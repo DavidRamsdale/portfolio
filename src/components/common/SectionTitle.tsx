@@ -3,19 +3,19 @@ import { motion } from "framer-motion";
 
 type SectionTitleProps = {
   title: string;
+  className?: string;
 };
 
-const SectionTitle = ({ title }: SectionTitleProps) => {
+export const SectionTitle = ({ title, className }: SectionTitleProps) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-  console.log("🚀 ~ SectionTitle ~ inView:", inView);
 
   return (
     <motion.h2
       ref={ref}
-      className="text-4xl font-semibold pb-4"
+      className={`text-4xl font-semibold pb-4 z-30 ${className}`}
       initial={{ opacity: 0, y: -50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, type: "spring", delay: 0.7 }}
@@ -24,5 +24,3 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
     </motion.h2>
   );
 };
-
-export default SectionTitle;
