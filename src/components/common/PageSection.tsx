@@ -20,6 +20,7 @@ export const PageSection = ({ children, className, id }: PageSectionProps) => {
       }}
       initial="hidden"
       className={`container pb-10 ${className}`}
+      style={{ scrollMarginTop: "62px" }}
       id={id}
     >
       {children}

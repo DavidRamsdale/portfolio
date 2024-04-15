@@ -2,6 +2,7 @@ import { Avatar } from "@/components/Avatar";
 import { ScreenType, useScreenType } from "@/hooks/useScreenType";
 import { Environment, OrbitControls, Stars, Text } from "@react-three/drei";
 import { Canvas, Vector3, useThree } from "@react-three/fiber";
+import { motion } from "framer-motion";
 
 const HeroContent = () => {
   const { size } = useThree();
@@ -74,8 +75,26 @@ const HeroContent = () => {
 
 export const Hero = () => {
   return (
-    <Canvas>
-      <HeroContent />
-    </Canvas>
+    <section id="contact">
+      <div className="relative flex items-end justify-center h-screen w-full pb-4">
+        <div className="absolute inset-0">
+          <Canvas>
+            <HeroContent />
+          </Canvas>
+        </div>
+        <motion.button
+          className="z-30 container flex justify-center items-center pb-10 cursor-pointer"
+          animate={{ y: ["0%", "10%", "0%"] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          onClick={() => {
+            document
+              .getElementById("about")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          <img src="/icons/arrow_down.png" alt="Scroll down" />
+        </motion.button>
+      </div>
+    </section>
   );
 };

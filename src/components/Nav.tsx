@@ -18,14 +18,14 @@ export const Nav = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full flex justify-start md:justify-around p-4 bg-black z-10">
+    <nav className="fixed top-0 w-full flex justify-start md:justify-around items-center p-4 bg-black h-[60px] z-50">
       {screenType === ScreenType.Mobile ? (
         <>
           <HamburgerMenu
             isOpen={isPaneOpen}
             menuClicked={() => setIsPaneOpen(!isPaneOpen)}
-            width={18}
-            height={15}
+            width={24}
+            height={18}
             strokeWidth={1}
             rotate={0}
             color="white"
