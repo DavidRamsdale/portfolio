@@ -4,7 +4,7 @@ import Earth from "./canvas/Earth";
 export const Contact = () => {
   return (
     <section id="contact">
-      <div className="relative flex items-end md:items-center h-screen w-full pb-8">
+      <div className="relative flex items-end md:items-center h-screen w-full pb-4">
         <div className="absolute inset-0">
           <Earth />
         </div>
