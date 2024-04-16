@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader, AdditiveBlending, Group } from "three";
 import { Environment, OrbitControls, Stars } from "@react-three/drei";
@@ -100,13 +100,15 @@ const EarthGroup = () => {
 export default function Earth() {
   return (
     <Canvas>
-      <Environment preset="sunset" />
-      <ambientLight intensity={1} />
-      <color attach="background" args={["#000000"]} />
-      <Stars speed={1} />
-      <OrbitControls enableZoom={false} enableRotate={false} />
-      <Stars />
-      <EarthGroup />
+      <Suspense>
+        <Environment preset="sunset" />
+        <ambientLight intensity={1} />
+        <color attach="background" args={["#000000"]} />
+        <Stars speed={1} />
+        <OrbitControls enableZoom={false} enableRotate={false} />
+        <Stars />
+        <EarthGroup />
+      </Suspense>
     </Canvas>
   );
 }

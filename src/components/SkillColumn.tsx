@@ -10,12 +10,12 @@ interface SkillColumnProps {
 export const SkillColumn: React.FC<SkillColumnProps> = ({ title, skills }) => {
   return (
     <motion.div className="flex flex-col justify-start">
-      <h3 className="text-2xl font-semibold">{title}</h3>
+      <h3 className="text-2xl font-bold">{title}</h3>
       <div className="mt-2 space-y-4 pb-2">
         {skills.map((skill, index) => (
           <div className="w-64" key={index}>
             <motion.h3
-              className="text-xl font-bold text-gray-800"
+              className="text-lg font-semibold text-gray-800"
               variants={fadeInText(0.2 + index * 0.2)}
             >
               {skill.title}

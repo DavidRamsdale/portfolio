@@ -3,6 +3,7 @@ import { ScreenType, useScreenType } from "@/hooks/useScreenType";
 import { Environment, OrbitControls, Stars, Text } from "@react-three/drei";
 import { Canvas, Vector3, useThree } from "@react-three/fiber";
 import { motion } from "framer-motion";
+import { Suspense } from "react";
 
 const HeroContent = () => {
   const { size } = useThree();
@@ -75,11 +76,13 @@ const HeroContent = () => {
 
 export const Hero = () => {
   return (
-    <section id="contact">
+    <section id="home">
       <div className="relative flex items-end justify-center h-screen w-full pb-4">
         <div className="absolute inset-0">
           <Canvas>
-            <HeroContent />
+            <Suspense>
+              <HeroContent />
+            </Suspense>
           </Canvas>
         </div>
         <motion.button

@@ -12,3 +12,8 @@ export interface Skill {
   title: string;
   level: number;
 }
+
+export interface Skill {
+  title: string;
+  level: number;
+}

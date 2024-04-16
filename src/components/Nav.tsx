@@ -59,7 +59,7 @@ export const Nav = () => {
           <a
             key={index}
             href={link.to}
-            className="text-lg font-bold text-white cursor-pointer"
+            className="text-lg font-bold text-white cursor-pointer hover:text-indigo-500"
           >
             {link.label}
           </a>

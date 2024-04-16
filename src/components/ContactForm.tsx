@@ -53,6 +53,7 @@ export const ContactForm = () => {
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
         <div className="mb-4">
+          <h2 className="text-2xl font-semibold pb-2">Contact Me</h2>
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="Name"
