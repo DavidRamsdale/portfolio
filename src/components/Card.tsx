@@ -11,7 +11,7 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({ project, delay }) => {
   return (
     <motion.div
-      className="p-4 bg-white border rounded transform transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl origin-bottom"
+      className="relative p-4 bg-white border rounded transform transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl origin-bottom"
       initial={{ y: 50, opacity: 0 }}
       variants={fadeInFromTopVariant(delay)}
     >
@@ -21,18 +21,20 @@ export const Card: React.FC<CardProps> = ({ project, delay }) => {
         loading="lazy"
         className="w-full h-48 object-cover rounded"
       />
-      <div className="mt-4">
-        <h2 className="text-xl font-bold pb-2">{project.title}</h2>
-        <p className="pb-3">{project.description}</p>
-        <div className="flex flex-wrap space-x-2 mb-4">
-          {project.tags.map((tag, index) => (
-            <span
-              key={index}
-              className="text-sm text-gray-600 border rounded-full py-1 px-2"
-            >
-              {tag}
-            </span>
-          ))}
+      <div className="mt-4 flex flex-col items-between h-full">
+        <div>
+          <h2 className="text-xl font-bold pb-2">{project.title}</h2>
+          <p className="pb-3">{project.description}</p>
+          <div className="flex flex-wrap items-start mb-4 min-h-[76px]">
+            {project.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="text-sm text-gray-600 border rounded-full py-1 px-2 mr-2 mb-2"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
         <div className="flex justify-between items-center">
           <a

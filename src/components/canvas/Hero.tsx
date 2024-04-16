@@ -86,7 +86,7 @@ export const Hero = () => {
           </Canvas>
         </div>
         <motion.button
-          className="z-30 container flex justify-center items-center pb-10"
+          className="z-30 container flex justify-center items-center pb-16"
           animate={{ y: ["0%", "10%", "0%"] }}
           transition={{ duration: 2, repeat: Infinity }}
           onClick={() => {
