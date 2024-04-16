@@ -1,7 +1,7 @@
-import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { Project } from "@/constants/types";
 import { Button } from "./common/Button";
+import { fadeInFromTopVariant } from "@/utils/motion";
 
 interface CardProps {
   project: Project;
@@ -9,18 +9,11 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ project, delay }) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
     <motion.div
-      ref={ref}
       className="p-4 bg-white border rounded transform transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl origin-bottom"
       initial={{ y: 50, opacity: 0 }}
-      animate={inView ? { y: 0, opacity: 1 } : {}}
-      transition={{ duration: 0.5, type: "spring", delay }}
+      variants={fadeInFromTopVariant(delay)}
     >
       <img
         src={project.imageUrl}

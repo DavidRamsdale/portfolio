@@ -1,4 +1,4 @@
-import { useInView } from "react-intersection-observer";
+import { fadeInFromTopVariant } from "@/utils/motion";
 import { motion } from "framer-motion";
 
 type SectionTitleProps = {
@@ -7,18 +7,10 @@ type SectionTitleProps = {
 };
 
 export const SectionTitle = ({ title, className }: SectionTitleProps) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
     <motion.h2
-      ref={ref}
       className={`text-4xl font-semibold pb-4 z-30 ${className}`}
-      initial={{ opacity: 0, y: -50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, type: "spring", delay: 0.7 }}
+      variants={fadeInFromTopVariant(0.5)}
     >
       {title}
     </motion.h2>

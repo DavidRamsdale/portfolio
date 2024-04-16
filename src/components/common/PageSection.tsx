@@ -1,3 +1,4 @@
+import { staggerContainer } from "@/utils/motion";
 import { motion } from "framer-motion";
 
 type PageSectionProps = {
@@ -9,16 +10,10 @@ type PageSectionProps = {
 export const PageSection = ({ children, className, id }: PageSectionProps) => {
   return (
     <motion.section
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: 0.25,
-            delayChildren: 0.5,
-          },
-        },
-      }}
       initial="hidden"
+      variants={staggerContainer()}
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
       className={`container pb-10 ${className}`}
       style={{ scrollMarginTop: "62px" }}
       id={id}
