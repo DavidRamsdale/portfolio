@@ -70,7 +70,8 @@ export const projects: Project[] = [
     imageUrl: "./images/ai_journal.png",
     imageAlt: "Ai Journal",
     githubLink: "https://github.com/DavidRamsdale/ai-journal",
-    liveSiteLink: "https://project1.com",
+    liveSiteLink:
+      "https://ai-journal-on8ztqxad-david-ramsdales-projects.vercel.app/",
     tags: ["Nextjs", "Typescript", "OpenAI", "Clerk", "Prisma", "Langchain"],
   },
   {
