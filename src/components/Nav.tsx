@@ -38,7 +38,7 @@ export const Nav = () => {
             from="left"
             width="100%"
             hideHeader={true}
-            className="z-10"
+            className="z-50 absolute"
             onRequestClose={() => setIsPaneOpen(false)}
           >
             <div className="flex flex-col space-y-3 pt-[40px]">
@@ -47,7 +47,7 @@ export const Nav = () => {
                   key={index}
                   href={link.to}
                   onClick={() => setIsPaneOpen(false)}
-                  className="text-lg font-bold text-black"
+                  className="text-lg font-bold text-black border-b border-gray-200 py-2"
                 >
                   {link.label}
                 </a>

@@ -11,17 +11,19 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({ project, delay }) => {
   return (
     <motion.div
-      className="relative p-4 bg-white border rounded transform transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl origin-bottom"
+      className="relative p-4 bg-white border rounded transform transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl flex flex-col h-full"
       initial={{ y: 50, opacity: 0 }}
       variants={fadeInFromTopVariant(delay)}
     >
-      <img
-        src={project.imageUrl}
-        alt={project.imageAlt}
-        loading="lazy"
-        className="w-full h-48 object-cover rounded"
-      />
-      <div className="mt-4 flex flex-col items-between h-full">
+      <div className="w-full h-48 overflow-hidden">
+        <img
+          src={project.imageUrl}
+          alt={project.imageAlt}
+          loading="lazy"
+          className="object-cover w-full h-full rounded"
+        />
+      </div>
+      <div className="mt-4 flex flex-col flex-grow">
         <div>
           <h2 className="text-xl font-bold pb-2">{project.title}</h2>
           <p className="pb-3">{project.description}</p>
@@ -36,7 +38,7 @@ export const Card: React.FC<CardProps> = ({ project, delay }) => {
             ))}
           </div>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mt-auto">
           <a
             className="cursor-pointer text-blue-600"
             href={project.githubLink}
@@ -45,16 +47,18 @@ export const Card: React.FC<CardProps> = ({ project, delay }) => {
           >
             GitHub Repo
           </a>
-          <Button>
-            <a
-              className=""
-              href={project.liveSiteLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live Site
-            </a>
-          </Button>
+          {project.liveSiteLink && (
+            <Button>
+              <a
+                className=""
+                href={project.liveSiteLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Site
+              </a>
+            </Button>
+          )}
         </div>
       </div>
     </motion.div>

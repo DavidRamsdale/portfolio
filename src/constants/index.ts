@@ -5,7 +5,6 @@ export const Frontend: Skill[] = [
   { title: "Typescript", level: 90 },
   { title: "React", level: 90 },
   { title: "Next.js", level: 90 },
-  { title: "Graphql", level: 90 },
   { title: "HTML", level: 90 },
   { title: "CSS", level: 90 },
   { title: "Tailwind", level: 90 },
@@ -16,9 +15,10 @@ export const Frontend: Skill[] = [
 ];
 
 export const Backend: Skill[] = [
+  { title: "Node.js", level: 90 },
   { title: "Nest.js", level: 80 },
-  { title: "Node.js", level: 80 },
   { title: "MongoDB", level: 80 },
+  { title: "Graphql", level: 80 },
   { title: "SQL", level: 60 },
   { title: "Express", level: 70 },
 ];
@@ -44,7 +44,7 @@ export const experienceData = [
     title: "Full Stack Engineer",
     company: "My Muscle Chef",
     description:
-      "Specializing in frontend development, I've contributed to client-facing and backend systems with diverse projects, like integrating Salesforce, implementing DatoCMS for content management, creating APIs, using Plasmic for dynamic landing pages, and a full frontend rewrite with Next.js, showcasing my versatility and innovation.",
+      "I've contributed to client-facing and backend systems with diverse projects, like integrating Salesforce, implementing DatoCMS for content management, creating APIs, using Plasmic for dynamic landing pages, and a full frontend rewrite with Next.js, showcasing my versatility and innovation.",
   },
   {
     date: "Feb 2019 - Jun 2019",
@@ -74,23 +74,28 @@ export const projects: Project[] = [
     tags: ["Nextjs", "Typescript", "OpenAI", "Clerk", "Prisma", "Langchain"],
   },
   {
-    title: "Royal Clothing",
-    description: "E-commerce clothing store",
-    imageUrl: "https://placehold.co/600x400",
-    imageAlt: "Royal Clothing",
-    githubLink: "https://github.com/DavidRamsdale/royal_clothing",
-    liveSiteLink: "https://project1.com",
-    tags: ["React", "Javascript", "Styled Components", "Redux", "Firebase"],
-  },
-  {
     title: "Portfolio Site Version 2",
     description:
       "The second iteration of my portfolio site, showcasing my latest projects and skills.",
     imageUrl: "./images/portfolio_v2.png",
     imageAlt: "Portfolio Site V2",
     githubLink: "https://github.com/DavidRamsdale/portfolio",
-    liveSiteLink: "https://project1.com",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+  },
+  {
+    title: "Royal Clothing",
+    description: "E-commerce clothing store",
+    imageUrl: "https://placehold.co/600x400",
+    imageAlt: "Royal Clothing",
+    githubLink: "https://github.com/DavidRamsdale/royal_clothing",
+    tags: [
+      "React",
+      "Javascript",
+      "Styled Components",
+      "Redux",
+      "Firebase",
+      "Stripe",
+    ],
   },
   {
     title: "Portfolio Site Version 1",
@@ -98,7 +103,7 @@ export const projects: Project[] = [
       "My first portfolio site, a simple yet effective showcase of my initial projects and skills.",
     imageUrl: "./images/portfolio_v1.png",
     imageAlt: "Portfolio Site V1",
-    githubLink: "https://github.com/user/project1",
+    githubLink: "https://github.com/DavidRamsdale/Portfolio-Page",
     liveSiteLink: "https://davidramsdale.github.io/Portfolio-Page/",
     tags: ["HTML", "CSS"],
   },
