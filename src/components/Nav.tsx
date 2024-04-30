@@ -38,6 +38,7 @@ export const Nav = () => {
             from="left"
             width="100%"
             hideHeader={true}
+            className="z-10"
             onRequestClose={() => setIsPaneOpen(false)}
           >
             <div className="flex flex-col space-y-3 pt-[40px]">

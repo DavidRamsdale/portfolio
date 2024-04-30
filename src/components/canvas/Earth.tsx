@@ -98,6 +98,7 @@ const EarthGroup = () => {
 };
 
 export default function Earth() {
+  const screenType = useScreenType();
   return (
     <Canvas>
       <Suspense>
@@ -105,7 +106,9 @@ export default function Earth() {
         <ambientLight intensity={1} />
         <color attach="background" args={["#000000"]} />
         <Stars speed={1} />
-        <OrbitControls enableZoom={false} enableRotate={false} />
+        {screenType !== ScreenType.Mobile && (
+          <OrbitControls enableZoom={false} enableRotate={false} />
+        )}
         <Stars />
         <EarthGroup />
       </Suspense>

@@ -64,6 +64,16 @@ export const experienceData = [
 
 export const projects: Project[] = [
   {
+    title: "AI Journal",
+    description:
+      "Leverage AI to analyze and understand your mood based on your journal entries",
+    imageUrl: "./images/ai_journal.png",
+    imageAlt: "Ai Journal",
+    githubLink: "https://github.com/DavidRamsdale/ai-journal",
+    liveSiteLink: "https://project1.com",
+    tags: ["Nextjs", "Typescript", "OpenAI", "Clerk", "Prisma", "Langchain"],
+  },
+  {
     title: "Royal Clothing",
     description: "E-commerce clothing store",
     imageUrl: "https://placehold.co/600x400",
@@ -74,7 +84,8 @@ export const projects: Project[] = [
   },
   {
     title: "Portfolio Site Version 2",
-    description: "My latest portfolio site",
+    description:
+      "The second iteration of my portfolio site, showcasing my latest projects and skills.",
     imageUrl: "./images/portfolio_v2.png",
     imageAlt: "Portfolio Site V2",
     githubLink: "https://github.com/DavidRamsdale/portfolio",
@@ -83,7 +94,8 @@ export const projects: Project[] = [
   },
   {
     title: "Portfolio Site Version 1",
-    description: "This was my first portfolio site.",
+    description:
+      "My first portfolio site, a simple yet effective showcase of my initial projects and skills.",
     imageUrl: "./images/portfolio_v1.png",
     imageAlt: "Portfolio Site V1",
     githubLink: "https://github.com/user/project1",

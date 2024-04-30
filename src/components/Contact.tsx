@@ -8,7 +8,7 @@ export const Contact = () => {
         <div className="absolute inset-0">
           <Earth />
         </div>
-        <div className="container z-30 lg:pl-36">
+        <div className="container z-10 lg:pl-36">
           <ContactForm />
         </div>
       </div>
