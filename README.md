@@ -1,30 +1,47 @@
-# React + TypeScript + Vite
+# Portfolio Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the second iteration of my portfolio site, showcasing my latest projects and skills.
 
-Currently, two official plugins are available:
+## Technolgy
+- Typescript
+- Vite
+- Tailwind
+- Threejs 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- React three fiber avatar
+- The site includes a contact form that uses EmailJS for sending messages.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+You will need to sign up to emailjs to get the env variables 
+
+### Prerequisites
+
+- Node.js (version > 18)
+
+## EmailJS Setup
+
+The contact form in this portfolio site uses EmailJS for sending messages. You will need to sign up for an EmailJS account and create a new service and template. Once you've done that, you can find your service ID, template ID, and user ID in the EmailJS dashboard.
+
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file:
+
+```bash
+VITE_EMAILJS_SERVICE_ID
+VITE_EMAILJS_TEMPLATE_ID
+VITE_EMAILJS_PUBLIC_KEY
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Installation
+
+1. Clone the repo
+   ```bash
+   git clone https://github.com/your_username_/ai-journal.git
