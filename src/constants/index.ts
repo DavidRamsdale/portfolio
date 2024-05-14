@@ -86,7 +86,7 @@ export const projects: Project[] = [
   {
     title: "Royal Clothing",
     description: "E-commerce clothing store",
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/royal_clothing.png",
     imageAlt: "Royal Clothing",
     githubLink: "https://github.com/DavidRamsdale/royal_clothing",
     tags: [
